@@ -1,12 +1,39 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Light } from '../Light';
+import * as signalR from '@microsoft/signalr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DevicesControService {
 
-  constructor() { }
+  connection: signalR.HubConnection;
+
+  constructor() {
+    console.log('Injected');
+    this.connection = new signalR.HubConnectionBuilder()
+      .configureLogging(signalR.LogLevel.Information)
+      .withUrl('https://localhost:6001/devicescontrol')
+      .build();
+
+    this.connect();
+  }
+
+  connect(): void {
+    this.connection.on('Broadcast', message => {
+      console.log(message);
+    });
+
+    this.connection.on('LightStateChanged', message => {
+      console.log('LightStateChanged' + message.mode + message.brightness);
+    });
+
+    this.connection.start().then(function () {
+      console.log('SignalR Connected!');
+    }).catch(function (err) {
+      return console.error(err.toString());
+    });
+  }
 
   getState(): Light {
     return {
@@ -15,7 +42,9 @@ export class DevicesControService {
     };
   }
   turnOnLight(): Light {
-    console.log(this.turnOnLight);
+    this.connection.send('TurnOnLight').then(() => {
+      console.log('Then in');
+    })
     return {
       mode: 'ON',
       brightness: 5

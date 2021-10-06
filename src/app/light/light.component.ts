@@ -25,6 +25,7 @@ export class LightComponent implements OnInit {
   }
 
   turnOn() {
+    console.log('Turn on light');
     this.light = this.lightService.turnOnLight();
   }
 

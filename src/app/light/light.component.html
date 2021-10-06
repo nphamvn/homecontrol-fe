@@ -1,5 +1,17 @@
-<h2>Light</h2>
 <div class="light">
-    <p>Mode: <span>{{light.mode}}</span></p>
-    <p>Brightness: <span>{{light.brightness}}</span></p>
+    <h2>Light</h2>
+    <div class="light-mode">
+        <p>Mode: <span>{{light.mode}}</span></p>
+        <div>
+            <button (click)="turnOn()">ON</button>
+            <button (click)="turnOff()">OFF</button>
+        </div>
+    </div>
+    <div class="light-brightness">
+        <p>Brightness: <span>{{light.brightness}}</span></p>
+        <div>
+            <button>Dim</button>
+            <button>Brighten</button>
+        </div>
+    </div>
 </div>
