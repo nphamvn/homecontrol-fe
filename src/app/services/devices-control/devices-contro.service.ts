@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { AirConditioner, Environment, Light } from '../Light';
+import { AirConditioner, Environment, Light } from '../../Light';
 import * as signalR from '@microsoft/signalr';
 import { state } from '@angular/animations';
 import { EventEmitter } from 'stream';
@@ -17,8 +17,6 @@ export class DevicesControService {
   connection: signalR.HubConnection;
 
   constructor() {
-
-    console.log('Injected');
     this.connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
       .withUrl('https://localhost:6001/devicescontrol')
