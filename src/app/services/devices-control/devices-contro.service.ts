@@ -58,9 +58,7 @@ export class DevicesControService {
     };
   }
   turnOnLight(): Light {
-    this.connection.send('TurnOnLight').then(() => {
-      console.log('Then in');
-    })
+    this.connection.send('TurnOnLight');
     return {
       mode: 'ON',
       brightness: 5

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DevicesControService } from '../../services/devices-contro.service';
+import { DevicesControService } from '../../services/devices-control/devices-contro.service';
 import { AirConditioner, Environment, Light } from '../../Light';
 import { stat } from 'fs';
 import * as EventEmitter from 'events';
