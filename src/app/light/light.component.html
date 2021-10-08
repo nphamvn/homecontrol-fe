@@ -1,17 +1,42 @@
-<div class="light">
-    <h2>Light</h2>
-    <div class="light-mode">
-        <p>Mode: <span>{{light.mode}}</span></p>
-        <div>
-            <button (click)="turnOn()">ON</button>
-            <button (click)="turnOff()">OFF</button>
+<div class="container room">
+    <div class="env-sensor">
+        <h2>Environment</h2>
+        <p>Temperature <span>{{env.temperature}}</span>°C</p>
+        <p>Humidity <span>{{env.humidity}}</span>%</p>
+    </div>
+    <div class="light">
+        <h2>Light</h2>
+        <div class="light-mode">
+            <p>Mode: <span>{{light.mode}}</span></p>
+            <div>
+                <button class="control-button On" (click)="turnOn()">ON</button>
+                <button class="control-button Off" (click)="turnOff()">OFF</button>
+            </div>
+        </div>
+        <div class="light-brightness">
+            <p>Brightness: <span>{{light.brightness}}</span></p>
+            <div>
+                <button>Dim</button>
+                <button>Brighten</button>
+            </div>
         </div>
     </div>
-    <div class="light-brightness">
-        <p>Brightness: <span>{{light.brightness}}</span></p>
-        <div>
-            <button>Dim</button>
-            <button>Brighten</button>
+    <div class="aircon">
+        <h2>Air Conditioner</h2>
+        <div class="aricon-mode">
+            <p>Mode: <span>{{aircon.mode}}</span></p>
+            <div>
+                <button class="aircon-cooler" (click)="turnOn()">Cooler</button>
+                <button class="aircon-heater" (click)="turnOff()">Heater</button>
+                <button class="aircon-off" (click)="turnOff()">Off</button>
+            </div>
+        </div>
+        <div class="aircon-temperature">
+            <p>Temperature: <span>{{aircon.temperature}}</span></p>
+            <div>
+                <button>Up</button>
+                <button>Down</button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DevicesControService } from '../services/devices-contro.service';
-import { Light } from '../Light';
+import { AirConditioner, Environment, Light } from '../Light';
+import { stat } from 'fs';
+import * as EventEmitter from 'events';
 
 @Component({
   selector: 'app-light',
@@ -9,12 +11,43 @@ import { Light } from '../Light';
 })
 export class LightComponent implements OnInit {
 
+  env: Environment = {
+    temperature: 0,
+    humidity: 0
+  }
+
   light: Light = {
     mode: 'Unknown',
     brightness: -1
   }
 
-  constructor(private lightService: DevicesControService) { }
+  aircon: AirConditioner = {
+    mode: 'Unknown',
+    temperature: -1
+  }
+
+  // = new EventEmitter<Light>();
+
+  constructor(private lightService: DevicesControService) {
+    lightService.environmentSensorDataChanged$.subscribe(sensor => {
+      this.env = sensor;
+    })
+    lightService.lightStateChanged$.subscribe(light => {
+      this.light = light;
+    })
+  }
+
+  onEnvironmentSensorDataChanged(env: Environment) {
+    this.env = env
+  }
+
+  onLightStatedChanged(light: Light) {
+    this.light = light
+  }
+
+  onAirConditionerStatedChanged(light: Light) {
+    this.light = light
+  }
 
   ngOnInit(): void {
     this.getState();

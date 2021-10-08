@@ -1,3 +1,31 @@
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
 .light {
     border: 1px solid blue;
+    margin: 4px;
+    padding: 4px;
+}
+.env-sensor {
+    border: 1px solid green;
+    margin: 4px;
+    padding: 4px;
+}
+.aircon {
+    border: 1px solid rgb(231, 180, 14);
+    margin: 4px;
+    padding: 4px;
+}
+.control-button {
+    border-radius: 8px;
+    margin:0 8px;
+    width: 80px;
+}
+.control-button .on {
+    background-color: green;
+}
+.control-button .off {
+    
 }
