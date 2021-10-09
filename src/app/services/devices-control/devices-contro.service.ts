@@ -27,7 +27,6 @@ export class DevicesControService {
 
   connect(): void {
     this.connection.on('LightStateChanged', message => {
-      //console.log('LightStateChanged: ' + message.mode + ' ' + message.brightness);
       const light: Light = {
         mode: message.mode,
         brightness: message.brightness
@@ -36,7 +35,6 @@ export class DevicesControService {
     });
 
     this.connection.on("EnvironmentSensorDataChanged", message => {
-      //console.log("EnvironmentSensorDataChanged: " + "Temperature: " + message.temperature + ", Humidity: " + message.humidity);
       const sensor: Environment = {
         temperature: message.temperature,
         humidity: message.humidity
@@ -45,7 +43,7 @@ export class DevicesControService {
     });
 
     this.connection.start().then(function () {
-      console.log('SignalR Connected!');
+      console.log('DevicesControlHub Connected!');
     }).catch(function (err) {
       return console.error(err.toString());
     });

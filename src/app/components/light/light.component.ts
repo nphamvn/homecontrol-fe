@@ -37,18 +37,6 @@ export class LightComponent implements OnInit {
     })
   }
 
-  onEnvironmentSensorDataChanged(env: Environment) {
-    this.env = env
-  }
-
-  onLightStatedChanged(light: Light) {
-    this.light = light
-  }
-
-  onAirConditionerStatedChanged(light: Light) {
-    this.light = light
-  }
-
   ngOnInit(): void {
     this.getState();
   }
