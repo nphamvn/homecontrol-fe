@@ -14,7 +14,7 @@ export class NotificationService {
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl('https://localhost:6001/notification')
+      .withUrl('https://homecontrol-wepapp.azurewebsites.net/notification')
       .build();
 
     this.connect();

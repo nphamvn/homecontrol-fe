@@ -19,7 +19,7 @@ export class DevicesControService {
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl('https://localhost:6001/devicescontrol')
+      .withUrl('https://homecontrol-wepapp.azurewebsites.net/devicescontrol')
       .build();
 
     this.connect();
