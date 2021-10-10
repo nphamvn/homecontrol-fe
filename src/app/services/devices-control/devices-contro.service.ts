@@ -4,6 +4,8 @@ import * as signalR from '@microsoft/signalr';
 import { state } from '@angular/animations';
 import { EventEmitter } from 'stream';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class DevicesControService {
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl('https://homecontrol-wepapp.azurewebsites.net/devicescontrol')
+      .withUrl(environment.baseUrl + '/devicescontrol')
       .build();
 
     this.connect();

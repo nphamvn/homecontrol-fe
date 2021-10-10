@@ -8,9 +8,9 @@ describe('LightComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LightComponent ]
+      declarations: [LightComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
